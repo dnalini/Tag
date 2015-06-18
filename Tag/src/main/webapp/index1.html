@@ -4,7 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
-var testFun(){
+function testFun(){
 	alert("testing from jenkins.....");
 }
 </script>
@@ -14,5 +14,9 @@ var testFun(){
 hello Jenkins
 
 <button onclick="testFun()">Please Click</button>
+<br>
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
 </body>
 </html>
