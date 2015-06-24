@@ -11,7 +11,7 @@ public class JDBCTest {
 	
 	public static void main(String[] args) {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/dbname","test","test");
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("");
