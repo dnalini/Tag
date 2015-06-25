@@ -1,0 +1,30 @@
+
+CREATE TABLE `users` (
+    `user_id` int(11) NOT NULL AUTO_INCREMENT,
+    `username` varchar(45) NOT NULL,
+    `password` varchar(45) NOT NULL,
+    `fullname` varchar(45) NOT NULL,
+    `email` varchar(45) NOT NULL,
+    PRIMARY KEY (`user_id`)
+);
+
+
+INSERT INTO Users (username, password, fullname, email) VALUES (?, ?, ?, ?)
+int rowsInserted = statement.executeUpdate();
+if (rowsInserted > 0) {
+    System.out.println("A new user was inserted successfully!");
+}
+
+UPDATE Users SET password=?, fullname=?, email=? WHERE username=?
+int rowsUpdated = statement.executeUpdate();
+if (rowsUpdated > 0) {
+    System.out.println("An existing user was updated successfully!");
+}
+
+SELECT * FROM Users
+
+DELETE FROM Users WHERE username=?
+int rowsDeleted = statement.executeUpdate();
+if (rowsDeleted > 0) {
+    System.out.println("A user was deleted successfully!");
+}

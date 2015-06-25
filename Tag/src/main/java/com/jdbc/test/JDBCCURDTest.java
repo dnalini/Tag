@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class JDBCTest {
+public class JDBCCURDTest {
 	
 	public static void main(String[] args) {
 		try {
