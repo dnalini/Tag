@@ -20,8 +20,9 @@ public void insert(Employee emp) {
       try {
             con = DatabaseUtils.getConnection();
             stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO employee(emp_name, emp_salary, emp_phone, emp_address, emp_department)"
+            stmt.executeUpdate("INSERT INTO employee( emp_name, emp_salary, emp_phone, emp_address, emp_department)"
                         + "VALUES('" + emp_Name + "'," + emp_Salary + ",'" + emp_PhoneNumbers + "','" + emp_Address + "','" + emp_Department + "')");
+         
       } catch (SQLException e) {
             e.printStackTrace();
       }
@@ -55,6 +56,26 @@ public Employee findById(int emp_id) {
             e.printStackTrace();
       }
       return empList.get(0);
+}
+
+public List<Employee> searchEmployees() {
+    List<Employee> empList = new ArrayList<Employee>();
+    try {
+          con = DatabaseUtils.getConnection();
+          ResultSet resultSet = stmt.executeQuery("SELECT * FROM employee");
+          while (resultSet.next()) {
+                int empId = resultSet.getInt("emp_id");
+                String empName = resultSet.getString("emp_name");
+                Long empSalary = resultSet.getLong("emp_salary");
+                String empPhone = resultSet.getString("emp_phone");
+                String empAddress = resultSet.getString("emp_address");
+                String empDept = resultSet.getString("emp_department");
+                empList.add(new Employee(empId, empName, empSalary, empPhone, empAddress, empDept));
+          }
+    } catch (SQLException e) {
+          e.printStackTrace();
+    }
+    return empList;
 }
 
 public List<Employee> findAll() {
